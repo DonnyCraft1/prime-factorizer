@@ -3,7 +3,7 @@ This NPM-package can simplify fractions and prime factorize numbers
 
 # Install
 ```bash
-npm install prime-factoriser --save
+npm install prime-factorizer --save
 ```
 
 # Examples
