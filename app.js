@@ -39,7 +39,11 @@ function factors (number) {
     return result;
 }
 
-function simplify (numerator, denomerator) {
+function simplify (fraction) {
+    // Init variables
+    let numerator = fraction[0];
+    let denomerator = fraction[1];
+
     // Check if both arguments is defined
     if (numerator === undefined || denomerator === undefined) {
         throw "the function expects two arguments, numerator and denomerator";
@@ -52,11 +56,11 @@ function simplify (numerator, denomerator) {
     if (numerator === 0) return [0, 1]; // 0 divided by any number is 0
 
     // Remove any decimals in the fraction
-    let fraction = removeDecimals(numerator, denomerator);
+    let noDecimalsFraction = removeDecimals([numerator, denomerator]);
 
     // Calculate the factors for the numerator and the denomerator
     // and remove the similar factors
-    let shortFraction = removeSimilarFactors(factors(fraction[0]), factors(fraction[1]));
+    let shortFraction = removeSimilarFactors([factors(noDecimalsFraction[0]), factors(noDecimalsFraction[1])]);
 
     // Return the simplified fraction
     return [product(shortFraction[0]), product(shortFraction[1])];
@@ -102,8 +106,10 @@ function product (factors) {
     return product;
 }
 
-function removeDecimals (numerator, denomerator) {
+function removeDecimals (fraction) {
     // Init variables
+    let numerator = fraction[0];
+    let denomerator = fraction[1];
     let newNum = numerator;
     let newDen = denomerator;
     let count = 0;
@@ -124,7 +130,11 @@ function removeDecimals (numerator, denomerator) {
     return [newNum, newDen];
 }
 
-function removeSimilarFactors (numerator, denomerator) {
+function removeSimilarFactors (fraction) {
+    // Init variables
+    let numerator = fraction[0];
+    let denomerator = fraction[1];
+
     // Remove all similar factors
     for (let i = numerator.length - 1; i >= 0; i--) {
         for (let j = denomerator.length - 1; j >= 0; j--) {
