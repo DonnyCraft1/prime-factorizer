@@ -7,6 +7,9 @@ function factors (number) {
     // Special cases
     if (number === 0) return []; // The number 0 has no factors
     if (number === 1) return [1]; // The number 1 has one factor, itself
+    if (!isInt(number)) {
+        throw "factors function expects integer as imput, can't factorize decimal numbers";
+    }
 
     // Init variables
     let result = [];
