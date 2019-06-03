@@ -6,7 +6,7 @@ This NPM-package can simplify fractions and prime factorize numbers
 npm install prime-factoriser --save
 ```
 
-# Getting started
+# Examples
 ```javascript
 const Factorizer = require('prime-factorizer');
 
