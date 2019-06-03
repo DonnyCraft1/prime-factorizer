@@ -1,5 +1,4 @@
 const primes = require("./primes");
-const lim = primes.length;
 
 /// PUBLIC FUNCTIONS ///
 
@@ -10,6 +9,9 @@ function factors (number) {
     if (!isInt(number)) {
         throw "factors function expects integer as imput, can't factorize decimal numbers";
     }
+    if (number > primes[primes.length - 1]) {
+        throw "number is too large, " + primes[primes.length - 1] + " is the limit";
+    }
 
     // Init variables
     let result = [];
@@ -17,7 +19,7 @@ function factors (number) {
     let sucess = false;
 
     // Calculate the factors
-    for (let i = 0; i < lim && !sucess; i++) {
+    for (let i = 0; i < primes.length && !sucess; i++) {
         while (true) {
             let next = current / primes[i];
             if (next > 0 && isInt(next)) {
@@ -30,7 +32,7 @@ function factors (number) {
 
     // If not all factors was found
     if (!sucess) {
-        throw "number too large";
+        throw "could not calculate all factors";
     }
 
     // Return array of factors;
