@@ -77,6 +77,12 @@ function decimal (fraction) {
     return fraction[0] / fraction[1];
 }
 
+function mixedNumber (fraction) {
+    let wholeNumber = Math.floor(fraction[0] / fraction[1]);
+    let newNumerator = fraction[0] % fraction[1];
+    return [newNumerator, fraction[1], wholeNumber];
+}
+
 /// PRIVATE FUNCTIONS ///
 
 function isInt (number) {
@@ -137,5 +143,6 @@ function removeSimilarFactors (numerator, denomerator) {
 module.exports = {
     factors,
     simplify,
-    decimal
+    decimal,
+    mixedNumber
 }
