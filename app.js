@@ -7,7 +7,7 @@ function factors (number) {
     if (number === 0) return []; // The number 0 has no factors
     if (number === 1) return [1]; // The number 1 has one factor, itself
     if (!isInt(number)) {
-        throw "factors function expects integer as imput, can't factorize decimal numbers";
+        throw "factors function expects integer as input, can't factorize decimal numbers";
     }
     if (number > primes[primes.length - 1]) {
         throw "number is too large, " + primes[primes.length - 1] + " is the limit";
