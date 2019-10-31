@@ -1,5 +1,5 @@
 # Prime-Factorizer
-This NPM-package can simplify fractions and prime factorize numbers
+This NPM-package can simplify fractions and prime factorize numbers.
 
 # Install
 ```bash
